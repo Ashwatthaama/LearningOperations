@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 fileprivate struct DummyCodable: Codable { }
 
@@ -36,3 +37,4 @@ extension KeyedDecodingContainerProtocol {
         return try unkeyedContainer.decodeArrayByIgnoringInvalidElements(type)
     }
 }
+

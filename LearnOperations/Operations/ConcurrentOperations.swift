@@ -19,14 +19,6 @@ class ConcurrentOperations<T>: Operation {
 
     var completionHandler: (OperationCompletionHandler)?
 
-    func complete(result: Result<T>) {
-        finish()
-
-        if !isCancelled {
-            completionHandler?(result)
-        }
-    }
-
     private enum State: String {
         case ready = "isReady"
         case executing = "isExecuting"
@@ -78,5 +70,13 @@ class ConcurrentOperations<T>: Operation {
     override func cancel() {
         super.cancel()
         finish()
+    }
+
+    func complete(result: Result<T>) {
+        finish()
+
+        if !isCancelled {
+            completionHandler?(result)
+        }
     }
 }

@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let questionManager = QuestionDataManager()
 
-        for i in 1...5 {
+        for i in 0...1 {
             questionManager.retrieveQuestions(pageIndex: i) { result in
                 switch result {
                 case .success(let page):
